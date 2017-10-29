@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="superhero">
+        <item>蝙蝠侠</item>
+        <item>大超</item>
+        <item>神奇女侠</item>
+        <item>one老师</item>
+    </string-array>
+</resources>
