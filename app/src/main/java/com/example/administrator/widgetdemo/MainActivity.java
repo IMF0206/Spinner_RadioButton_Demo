@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.i("Activity LifeCycle", "onCreate is called");
+
         spinner_withcode = (Spinner) findViewById(R.id.spinner_code);
         data_list = new ArrayList<String>();
         data_list.add("bat");
@@ -81,6 +83,43 @@ public class MainActivity extends AppCompatActivity {
 //        heroImage.setImageResource(heroId);
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Activity LifeCycle", "onStart is called");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Activity LifeCycle", "onStop is called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Activity LifeCycle", "onResume is called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Activity LifeCycle", "onPause is called");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("Activity LifeCycle", "onRestart is called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Activity LifeCycle", "onDestory is called");
     }
 
     private void showToast() {
