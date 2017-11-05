@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                showToast();
+                
             }
         };
 //        spinner_withcode.setOnItemSelectedListener(spinner_select);
@@ -122,6 +122,24 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Activity LifeCycle", "onDestory is called");
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i("Activity LifeCycle", "onSaveInstanceState is called");
+        outState.putInt("click", this.click);
+        outState.putInt("heroImage", heroImageID);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.i("Activity LifeCycle", "onRestoreInstanceState is called");
+        click = savedInstanceState.getInt("click");
+        this.heroImageID = savedInstanceState.getInt("heroImage");
+        heroImage = (ImageButton) findViewById(R.id.heroImage);
+        heroImage.setImageResource(heroImageID);
+    }
+
     private void showToast() {
         Toast.makeText(this, selected, Toast.LENGTH_SHORT).show();
     }
@@ -144,19 +162,20 @@ public class MainActivity extends AppCompatActivity {
     public void chooseHero(View view) {
 
         heroImage = (ImageButton)findViewById(R.id.heroImage);
-        int heroImageId = 0;
+        click++;
+        Toast.makeText(this, "click : " + click, Toast.LENGTH_SHORT).show();
 
         if (view.getId() == R.id.firstButton) {
-            heroImageId = R.drawable.bat;
+            this.heroImageID = R.drawable.bat;
         } else if (view.getId() == R.id.secondButton) {
-            heroImageId = R.drawable.superman;
+            heroImageID = R.drawable.superman;
         } else if (view.getId() == R.id.thirdButton) {
-            heroImageId = R.drawable.godess;
+            heroImageID = R.drawable.godess;
         } else if (view.getId() == R.id.fourthButton) {
-            heroImageId = R.drawable.one;
+            heroImageID = R.drawable.one;
 
         }
-        heroImage.setImageResource(heroImageId);
+        heroImage.setImageResource(heroImageID);
 
 
     }
@@ -166,4 +185,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> arr_adapter;
     ImageButton heroImage;
     String selected;
+    private int click;
+    int heroImageID;
 }

@@ -59,6 +59,19 @@
         android:layout_height="wrap_content"
         android:src="@drawable/bat"/>
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Name" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
 
 
 </LinearLayout>
